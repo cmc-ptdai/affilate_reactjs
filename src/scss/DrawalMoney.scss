@@ -1,0 +1,36 @@
+.drawal-money {
+  table, tr, th, td {
+    border-collapse: collapse;
+    th, td {
+      padding: 25px;
+      text-align: center;
+    }
+  }
+  &__number {
+    font-weight: 600;
+    font-size:20px
+  }
+  &__button {
+    button {
+      border-radius: 10px;
+      margin-top: 20px;
+      height: 35px;
+    }
+  }
+  &__confirm {
+    text-align: center;
+    margin-top: 30px;
+    &--input {
+      width: 350px;
+      margin-right: 15px;
+      border-radius: 10px;
+      height: 35px;
+      line-height: 35px;
+      padding: 0px 10px;
+      outline: none;
+    }
+    &--button {
+      border-radius: 10px;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.editAccount {
+  label {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  input {
+    border-radius: 6px;
+  }
+  &__left {
+    &__groupButton {
+      text-align: center;
+    }
+    .btnSubmit {
+      width: 400px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: #cc0000;
+      cursor: pointer;
+      &:hover {
+        background-color: #aa0101;
+      }
+    }
+  }
+  &__right {
+    text-align: center;
+    &--avatar {
+      img {
+        width: 200px;
+        height: 150px;
+        margin: auto;
+        object-fit: cover;
+        border: 1px dashed #cc0000;
+        padding: 5px;
+      }
+    }
+    &--btn {
+      button {
+        margin-top: 10px;
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        background-color: #cc0000;
+        &:hover {
+          background-color: #aa0101;
+        }
+      }
+    }
+  }
+}
