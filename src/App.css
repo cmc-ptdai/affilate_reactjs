@@ -64,7 +64,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
   font: caption;
-  background-color: #fff;
+  background-color:  #750e6c;
 }
 ol, ul {
 	list-style: none;
@@ -81,3 +81,13 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+.backTop {
+  height: 50px;
+  width: 50px;
+  line-height: 60px;
+  border-radius: 5px;
+  background-color: #f9b72f;
+  color: #fff;
+  text-align: center;
+  font-size: 14;
+};

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -13,6 +13,7 @@ import DrawalMoney from './DrawalMoney';
 import History from './History';
 import HistoryDrawal from './HistoryDrawal';
 import Title from '../Title';
+import '../../../../../scss/showAffiliate.scss'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -47,18 +48,9 @@ function a11yProps(index) {
   };
 }
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.background.paper,
-    width: 500,
-  },
-}));
-
 const ShowAffiliate = () => {
-  const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = useState(0);
-  const a = "Sửa đổi thông tin tài khoản";
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -69,7 +61,7 @@ const ShowAffiliate = () => {
   };
   return (
     <div className="showAffiliate">
-      <Title title="áasasasasasasasas"/>
+      <Title title="Tài khoản affiliate"/>
       <AppBar position="static" color="default">
         <Tabs
           value={value}

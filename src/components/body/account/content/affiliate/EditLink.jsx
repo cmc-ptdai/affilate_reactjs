@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Button, Radio, Row, Col } from 'antd';
+import { Input, Button, Radio } from 'antd';
 import '../../../../../scss/editLink.scss';
 import userApi from '../../../../../api/userApi';
+import affiliateApi from '../../../../../api/affiliateApi';
 
 
 const optionsSelection = [
@@ -14,7 +15,7 @@ const EditLink = () => {
   const [user, setUser] = useState(null)
   const [valueSelect, setValueSelect] = useState('')
   const [inputSelect, setInputSelect] = useState('')
-  const [valueLink, setValueLink] = useState('')
+  const [valueLink, setValueLink] = useState('http://test.newca.vn/affiliate/')
 
   const fetchApi = async () => {
     const params = {
@@ -42,9 +43,32 @@ const EditLink = () => {
     setInputSelect(e.target.value)
   }
 
-  const saveEdit = () => {
+  const saveEdit = async () => {
     setValueLink(initialLink + inputSelect)
+    let params = {}
+      if (valueSelect === 'email') {
+        params = {
+          affiliate_code: user.phone,
+          email: user.email
+        }
+      }
+      if (valueSelect === 'phone') {
+        params = {
+          affiliate_code: user.phone,
+          email: user.email
+        }
+      }
+      if (valueSelect === '') {
+        params = {
+          affiliate_code: valueLink,
+          email: user.email
+        }
+      }
+
+    const response = affiliateApi.getAffiliate(params)
+    console.log(response);
     setValueSelect('')
+
   }
 
   return (
@@ -66,8 +90,8 @@ const EditLink = () => {
         </div>
         <div className="editLink__contentSelect">
           {
-            user && <div className="editLink__contentSelect--groupInput" style={{display: valueSelect === 'khac' ? 'block' : 'none'}}>
-              <Input onChange={onChangeInputSelect} placeholder= "Nhập tên link bạn muồn thay đổi"/>
+            user && <div className="editLink__contentSelect--groupInput">
+              <Input onChange={onChangeInputSelect} placeholder= "Nhập tên link bạn muồn thay đổi" style={{display: valueSelect === 'khac' ? 'block' : 'none'}}/>
               <Button onClick={saveEdit} type='primary' danger>lưu thay đổi</Button>
             </div>
           }

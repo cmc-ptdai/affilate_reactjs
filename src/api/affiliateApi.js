@@ -2,7 +2,7 @@ import apiClient from './apiClient'
 
 const affiliateApi = {
   getAffiliate:(params) => {
-    const url = '/updateBankInfo'
+    const url = '/updateAffiliateInfo'
     return apiClient.get(url, {params})
   },
 }

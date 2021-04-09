@@ -1,10 +1,6 @@
 import React from 'react';
 import '../../../../scss/content.scss';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom"
+import { Switch, Route } from "react-router-dom"
 import routerAccount from '../routerAccount';
 
 const Content = () => {

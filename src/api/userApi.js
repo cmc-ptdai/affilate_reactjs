@@ -5,9 +5,9 @@ const userApi = {
     const url = '/getUserInfo'
     return apiClient.get(url, {params})
   },
-  editUser: (params, data) => {
-    const url = '/getUserInfo'
-    return apiClient.post(url, {params}, data)
+  editUser: (params) => {
+    const url = '/updateUserInfo'
+    return apiClient.get(url, {params})
   }
 }
 

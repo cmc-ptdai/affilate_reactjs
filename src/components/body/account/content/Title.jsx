@@ -2,11 +2,11 @@ import React from 'react';
 import '../../../../scss/titleBody.scss'
 
 
-function Title(props) {
-  console.log(props);
+function Title({title}) {
+
   return (
     <div className="titleBody">
-      <span>tiêu đề</span>
+      <span>{title}</span>
     </div>
   );
 }

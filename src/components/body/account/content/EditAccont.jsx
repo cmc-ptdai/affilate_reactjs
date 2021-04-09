@@ -57,17 +57,26 @@ const EditAccount = () => {
     })
   }
 
-  // const updateUser = () => {
-  //   const params = {
-  //     email: "mr.tiennv@gmail.com"
-  //   }
-  //   userApi.editUser(params,user)
-  // }
+  const updateUser = async () => {
+    const params = {
+      email: user.email,
+      name: user.name,
+      gender: user.gender,
+      birthday: user.birthday,
+      province: user.province,
+      district: user.district,
+      ward: user.ward,
+      address: user.address
+    }
+    console.log(params);
+    const dai = await userApi.editUser(params)
+    console.log(dai);
+  }
   const deleteAvatar = () => {}
 
   return (
     <div className="editAccount">
-      <MyTitle />
+      <MyTitle title="Sửa thông tin tài khoản"/>
       {user && (
         <Row>
           <Col span={16} className="editAccount__left">
@@ -209,7 +218,7 @@ const EditAccount = () => {
                 <Input defaultValue={user.address}/>
               </Form.Item>
               <Form.Item  className="editAccount__left__groupButton">
-                <Button className="btnSubmit" variant="contained" color="primary" >
+                <Button className="btnSubmit" variant="contained" color="primary" onClick={updateUser}>
                   Cập nhật
                 </Button>
               </Form.Item>
@@ -221,7 +230,7 @@ const EditAccount = () => {
               <img src={user.profile_photo_path} alt="avatar"/>
             </div>
             <div className="editAccount__right--btn">
-              <Button htmltype="submit" variant="contained" color="secondary" onClick={deleteAvatar}> xoá ảnh đại diện </Button>
+              <Button variant="contained" color="secondary" onClick={deleteAvatar}> xoá ảnh đại diện </Button>
             </div>
           </Col>
         </Row>
