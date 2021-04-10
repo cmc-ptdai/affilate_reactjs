@@ -4,18 +4,19 @@ import { Affix } from 'antd';
 import { Link, BrowserRouter as Router } from 'react-router-dom';
 import { Menu } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import { useSelector } from 'react-redux';
 
 const { SubMenu } = Menu;
 const Header = () => {
   const [current, setCurrent] = useState('home');
-
+  const listCart = useSelector(store => store.Cart)
+  console.log(listCart);
   const handleClick = e => {
     console.log('click ', e);
     setCurrent(e.key);
   };
   return (
     <div className="header">
-      <Router>
         <Affix offsetTop={0} >
           <Menu onClick={handleClick} selectedKeys={current} mode="horizontal">
             <Menu.Item key="home" icon={<MailOutlined />}>
@@ -50,11 +51,10 @@ const Header = () => {
               <Link to='/account'>Account</Link>
             </Menu.Item>
             <Menu.Item key="cart">
-              <Link to='/cart'>giỏ hàng</Link>
+              <Link to='/cart'>giỏ hàng {listCart ? listCart.length : '0'}</Link>
             </Menu.Item>
           </Menu>
         </Affix>
-      </Router>
     </div>
   );
 }

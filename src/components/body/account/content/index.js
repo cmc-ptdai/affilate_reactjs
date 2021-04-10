@@ -3,7 +3,8 @@ import '../../../../scss/content.scss';
 import { Switch, Route } from "react-router-dom"
 import routerAccount from '../routerAccount';
 
-const Content = () => {
+const Content = ({path}) => {
+  console.log(path);
   return (
     <div className="content">
       <Switch>

@@ -4,35 +4,60 @@ import Slider from 'react-slick';
 import '../../../scss/ListItem.scss'
 
 const ListItem = () => {
-  const settings = {
+    const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1
+    slidesToScroll: 3
   };
+
+  const data = [
+    {
+      id: 1,
+      img: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
+      name: 'Chữ kí số cho cá nhân gói 3 năm',
+      price: 'l.700.000'
+    },
+    {
+      id: 2,
+      img: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
+      name: 'Chữ kí số cho cá nhân gói 3 năm',
+      price: '4500.000'
+    },
+    {
+      id: 3,
+      img: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
+      name: 'Chữ kí số cho cá nhân gói 3 năm',
+      price: '900.000'
+    },
+    {
+      id: 4,
+      img: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
+      name: 'Chữ kí số cho cá nhân gói 3 năm',
+      price: '600.000'
+    },
+    {
+      id: 5,
+      img: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
+      name: 'Chữ kí số cho cá nhân gói 3 năm',
+      price: '800.000'
+    }
+  ]
   return (
     <>
       <div className = "listItem">
         <Slider {...settings}>
-          <div>
-            <ProductItem/>
-          </div>
-          <div>
-            <ProductItem/>
-          </div>
-          <div>
-            <ProductItem/>
-          </div>
-          <div>
-            <ProductItem/>
-          </div>
-          <div>
-            <ProductItem/>
-          </div>
-          <div>
-            <ProductItem/>
-          </div>
+          {
+            data && data.map((item, index) => {
+              return (
+                <div key={index}>
+                  <ProductItem dataItem={item} />
+                </div>
+              )
+            })
+          }
+
         </Slider>
       </div>
     </>

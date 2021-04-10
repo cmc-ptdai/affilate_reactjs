@@ -5,7 +5,7 @@ import Cart from './components/body/cart/index'
 const router = [
   {path: '/', exact: true, Component: Home},
   {path: '/account', exact: true, Component: Account},
-  {path: '/cart', exact: true, Component: Cart},
+  {path: '/cart', exact: false, Component: Cart},
 ]
 
 export default router

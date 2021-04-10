@@ -1,7 +1,8 @@
 .cart {
   table {
-    width: 60%;
+    width: 90%;
     text-align: center;
+    margin: auto;
     img {
       width: 150px;
       height: 100px;
@@ -11,18 +12,32 @@
       font-size: 18px;
       font-weight: 600;
     }
+    tr {
+      display: flex;
+    }
+    td, th {
+      width: 170px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
   &__table {
     &__number {
+      border: 1px solid #ccc;
       input {
         width: 40px;
         text-align: center;
       }
-      &--increment{
-
-      }
-      &--decrement{
-
+      button{
+        width: 25px;
+        height: 30px;
+        font-size: 20px;
+        font-weight: 600;
+        background-color: #ccc;
+        &:hover {
+          background-color: rgb(216, 215, 215);
+        }
       }
     }
     &--name {
@@ -31,7 +46,16 @@
       font-weight: 600;
     }
     &--delete {
-
+      button {
+        width: 75px;
+        height: 35px;
+        border-radius: 10px;
+        background-color: #f9b72f;
+        border: none;
+        &:hover {
+          background-color: #ffcf6f;
+        }
+      }
     }
 
   }
