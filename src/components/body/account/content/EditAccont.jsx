@@ -4,11 +4,14 @@ import '../../../../scss/EditAccount.scss';
 import userApi from '../../../../api/userApi'
 import Button from '@material-ui/core/Button';
 import MyTitle from './Title';
+import {setLoading as setLoadingAction} from '../../../../redux/action/userAction';
+import { useDispatch } from 'react-redux';
 
 const { Option } = Select;
 const EditAccount = () => {
   const [form] = Form.useForm();
   const [user, setUser] = useState(null)
+  const dispatch = useDispatch()
 
   const fetchApi = async () => {
     const params = {
@@ -58,6 +61,10 @@ const EditAccount = () => {
   }
 
   const updateUser = async () => {
+    dispatch(setLoadingAction(true))
+    setTimeout(() => {
+      dispatch(setLoadingAction(false))
+    }, 3000);
     const params = {
       email: user.email,
       name: user.name,
@@ -69,10 +76,14 @@ const EditAccount = () => {
       address: user.address
     }
     console.log(params);
-    const dai = await userApi.editUser(params)
-    console.log(dai);
+     await userApi.editUser(params)
   }
-  const deleteAvatar = () => {}
+  const deleteAvatar = () => {
+    dispatch(setLoadingAction(true))
+    setTimeout(() => {
+      dispatch(setLoadingAction(false))
+    }, 3000);
+  }
 
   return (
     <div className="editAccount">

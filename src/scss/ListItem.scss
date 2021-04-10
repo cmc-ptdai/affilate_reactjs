@@ -1,0 +1,10 @@
+.listItem {
+  width: 94%;
+  margin: auto;
+  .slick-next:before, .slick-prev:before {
+    line-height: 1;
+    color: #ccc;
+    font-size: 30px;
+    z-index: 10000;
+  }
+}

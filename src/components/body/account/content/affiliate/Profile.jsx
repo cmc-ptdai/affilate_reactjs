@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Card, Button, Modal, Form, Input } from 'antd';
 import '../../../../../scss/affiliateProfile.scss';
 import InfoBank from '../../../../../api/infoBank';
+import { setLoading as setLoadingAction } from '../../../../../redux/action/userAction'
+import { useDispatch } from 'react-redux';
 
 const Profile = () => {
+  const dispatch = useDispatch()
   const [infoBank, setInfoBank] = useState(null)
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -17,9 +20,7 @@ const Profile = () => {
 
   useEffect(() => {
     fetchInfoBank();
-    return;
   }, [])
-
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -35,7 +36,7 @@ const Profile = () => {
     })
   }
 
-  const handleOk = async () => {
+  const submitBank = async () => {
     const params = {
       email: "mr.tiennv@gmail.com",
       bank_name: infoBank.bank_name,
@@ -45,11 +46,20 @@ const Profile = () => {
     }
 
     const response = await InfoBank.updateBankInfo(params)
-    console.log(response);
-    setIsModalVisible(false);
+    return response
+  }
+  const handleOk = () => {
+    submitBank()
+    dispatch(setLoadingAction(true))
+    setIsModalVisible(false)
+    setTimeout(() => {
+      dispatch(setLoadingAction(false))
+    }, 3000);
+
   };
   return (
     <div className="profileBank">
+
       <Card
         title="Thông Tin Ngân Hàng "
         extra={<Button type="primary"

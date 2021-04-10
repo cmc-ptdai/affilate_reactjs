@@ -52,6 +52,11 @@
       button {
         border-radius: 10px;
         margin-top: 15px;
+        border: none;
+        background-color: #f9b72f !important;
+        &:hover {
+          background-color: #ffcf6f !important;
+        }
       }
     }
   }

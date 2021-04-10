@@ -1,0 +1,38 @@
+.cart {
+  table {
+    width: 60%;
+    text-align: center;
+    img {
+      width: 150px;
+      height: 100px;
+      margin: auto;
+    }
+    th {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+  &__table {
+    &__number {
+      input {
+        width: 40px;
+        text-align: center;
+      }
+      &--increment{
+
+      }
+      &--decrement{
+
+      }
+    }
+    &--name {
+    }
+    &--price {
+      font-weight: 600;
+    }
+    &--delete {
+
+    }
+
+  }
+}

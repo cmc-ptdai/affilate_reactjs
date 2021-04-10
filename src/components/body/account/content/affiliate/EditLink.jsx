@@ -3,6 +3,8 @@ import { Input, Button, Radio } from 'antd';
 import '../../../../../scss/editLink.scss';
 import userApi from '../../../../../api/userApi';
 import affiliateApi from '../../../../../api/affiliateApi';
+import {setLoading as setLoadingAction} from '../../../../../redux/action/userAction'
+import { useDispatch } from 'react-redux';
 
 
 const optionsSelection = [
@@ -12,6 +14,7 @@ const optionsSelection = [
 ];
 const EditLink = () => {
   const initialLink = 'http://test.newca.vn/affiliate/'
+  const dispatch = useDispatch()
   const [user, setUser] = useState(null)
   const [valueSelect, setValueSelect] = useState('')
   const [inputSelect, setInputSelect] = useState('')
@@ -45,6 +48,10 @@ const EditLink = () => {
 
   const saveEdit = async () => {
     setValueLink(initialLink + inputSelect)
+    dispatch(setLoadingAction(true))
+    setTimeout(() => {
+      dispatch(setLoadingAction(false))
+    }, 3000);
     let params = {}
       if (valueSelect === 'email') {
         params = {
